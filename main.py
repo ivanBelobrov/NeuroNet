@@ -11,8 +11,6 @@ def hello():
             hang_up_null()
     with nv.listen(
             detect_policy=['confirm', 'wrong_time', 'repeat'],
-            no_input_timeout=10000,
-            recognition_time_out=5000
     ) as r:
         if len(r.utterance()) == 0:
             nn.counter('hello_count', '+')
@@ -62,8 +60,6 @@ def recommended_main(recommendation=None):
                 'question',
                 'repeat'
             ],
-            no_input_timeout=12000,
-            recognition_time_out=5000
     ) as r:
         if len(r.utterance()) == 0:
             nn.counter('recommended_null_count', '+')
